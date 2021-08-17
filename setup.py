@@ -17,8 +17,8 @@ DESCRIPTION = 'This package is specially designed for Taiwan stock market.'
 URL = 'https://github.com/AlphaFinance/Alpha_Finance'
 EMAIL = 'alphafinance.tw@gmail.com'
 AUTHOR = 'KB'
-REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.5'
+REQUIRES_PYTHON = '>=3.7.0'
+VERSION = '0.1.8'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -38,7 +38,7 @@ REQUIRED = [
     'xgboost==1.4.2',
     'keras==2.2.4',
     'pandas==1.3.1',
-    'numpy==1.16.4',
+    'numpy==1.21.1',
     'talib-binary'
 ]
 
