@@ -18,7 +18,7 @@ URL = 'https://github.com/AlphaFinance/Alpha_Finance'
 EMAIL = 'alphafinance.tw@gmail.com'
 AUTHOR = 'KB'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.2.3'
+VERSION = '0.2.4'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -31,7 +31,7 @@ REQUIRED = [
     'plotly==5.1.0',
     'pyecharts==1.7.1',
     'yfinance==0.1.62',
-    'fugle_realtime==0.2.9',
+    'fugle_realtime_fix==0.2.9',
     'tensorflow==1.14.0',
     'scikit-learn==0.24.2',
     'lightgbm==3.1.1',
