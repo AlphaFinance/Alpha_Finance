@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import concurrent.futures
 
-__version__ = '0.1.9'
+__version__ = '0.2.0'
 
 def create_dir(dir_name):
     if not os.path.isdir(dir_name):
@@ -28,11 +28,12 @@ def download_data_multithreading(dir_name):
             
 def download():
 
-    if 'colab' in sys.modules:
+    if 'google.colab' in sys.modules:
         from google.colab import drive
         drive.mount('/content/drive')
         dir_name = '/content/drive/MyDrive/Alpha_Finance/DB_twstock'
-    else:
+        
+    if 'colab' not in sys.modules:
         dir_name = 'DB_twstock'
         
     create_dir(dir_name)
