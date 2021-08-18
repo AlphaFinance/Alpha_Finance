@@ -18,7 +18,7 @@ URL = 'https://github.com/AlphaFinance/Alpha_Finance'
 EMAIL = 'alphafinance.tw@gmail.com'
 AUTHOR = 'KB'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.2.5'
+VERSION = '0.2.6'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -36,7 +36,9 @@ REQUIRED = [
     'xgboost==1.4.2',
     'keras==2.2.4',
     'yfinance==0.1.62',
-    'fugle_realtime_fix==0.2.9'
+    'fugle_realtime_fix==0.2.9',
+    'pandas==1.3.1',
+    'numpy==1.21.1'
 ]
 
 # What packages are optional?
