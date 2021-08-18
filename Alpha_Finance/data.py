@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 
 if 'google.colab' in sys.modules:
-    dir_name = '/content/drive/MyDrive/Alpha_Finance/DB_twstock'
+    dir_name = '/content/drive/MyDrive/DB_twstock'
 else:
     dir_name = 'DB_twstock'
     
