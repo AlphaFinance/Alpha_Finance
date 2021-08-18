@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import concurrent.futures
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 def create_dir(dir_name):
     if not os.path.isdir(dir_name):
@@ -32,8 +32,8 @@ def download():
         from google.colab import drive
         drive.mount('/content/drive')
         dir_name = '/content/drive/MyDrive/Alpha_Finance/DB_twstock'
-        
-    if 'colab' not in sys.modules:
+
+    else:
         dir_name = 'DB_twstock'
         
     create_dir(dir_name)
