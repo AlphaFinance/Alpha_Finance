@@ -38,8 +38,31 @@ pip install Alpha_Finance
 ```python
 import Alpha_Finance
 
+Alpha_Finance.download()
 ```
--------------------------------------------
+
+industry 🆗  
+monthly_revenue 🆗  
+dealer 🆗  
+foreign_investors 🆗  
+investment_trust 🆗  
+Close 🆗  
+Volume 🆗  
+margin_trading 🆗  
+Low 🆗  
+short_selling 🆗  
+High 🆗  
+Open 🆗  
+⭐⭐⭐⭐⭐ Finish ⭐⭐⭐⭐⭐
+
+#### 取得數據庫資料
+```python
+from Alpha_Finance.data import DataReader
+
+DataReader.get_twstock_close()
+```
+
+----------------------------------------------------------------
 
 ## Contact
 

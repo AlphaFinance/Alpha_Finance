@@ -18,7 +18,7 @@ URL = 'https://github.com/AlphaFinance/Alpha_Finance'
 EMAIL = 'alphafinance.tw@gmail.com'
 AUTHOR = 'KB'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.1.8'
+VERSION = '0.1.9'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -36,10 +36,7 @@ REQUIRED = [
     'scikit-learn==0.24.2',
     'lightgbm==3.1.1',
     'xgboost==1.4.2',
-    'keras==2.2.4',
-    'pandas==1.3.1',
-    'numpy==1.21.1',
-    'talib-binary'
+    'keras==2.2.4'
 ]
 
 # What packages are optional?
