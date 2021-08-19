@@ -52,7 +52,7 @@ class DataReader():
 
     def get_twstock_monthly_revenue(dir_name=dir_name) -> pd.DataFrame:
         '''
-        type:月營收
+        type:當月營收
         '''
         return pd.read_pickle(f"{dir_name}/monthly_revenue.pkl")
     

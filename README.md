@@ -1,5 +1,3 @@
-![](/images/logo.png)
-
 ## Installation
 Install using pip
 
@@ -62,9 +60,50 @@ from Alpha_Finance.data import DataReader
 DataReader.get_twstock_close()
 ```
 
+|date|0015|0050|0051|0052|0053|0054|
+|-|-|-|-|-|-|-|
+|2021-08-12|NaN|136.95|57.20|124.05|66.00|31.81|22.38|
+|2021-08-13|NaN|135.65|56.35|122.55|65.40|31.30|22.45|
+|2021-08-16|NaN|135.35|55.50|122.50|65.30|30.93|22.06|
+|2021-08-17|NaN|134.35|54.80|121.20|64.70|30.67|
+
+#### 自動化爬蟲
+```python
+from Alpha_Finance.crawler import auto_crawler
+
+auto_crawler()
+```
+========= Start crawling price =========  
+2021-07-12 🆗  
+2021-07-13 🆗  
+=========       Finish✔         =========  
+========= Start crawling institution =========  
+2021-07-12 🆗  
+2021-07-13 🆗 
+=========       Finish✔         =========  
+========= Start crawling margin =========  
+2021-07-12 🆗  
+2021-07-13 🆗 
+=========       Finish✔         =========  
+========= Start crawling monthly_revenue =========  
+2021-07 🆗  
+=========       Finish✔         =========  
+⭐⭐⭐⭐⭐ All Finish ⭐⭐⭐⭐⭐  
+
 ----------------------------------------------------------------
 
 ## Contact
 
 ##### 網站: https://alphafinance.github.io/  
 ##### Email: alphafinance.tw@gmail.com
+
+---------------------------------------------------------------
+## Reference
+
+Alpha_Finance專案開發參考自:  
+[twstock](https://twstock.readthedocs.io/zh_TW/latest/)  
+[FinMind](https://finmindtrade.com/)  
+[FinLab](https://www.finlab.tw/)  
+[blog.louie.lu](https://blog.louie.lu/)
+
+若有侵害版權疑慮，請來信或留言告知，我們將儘速移除相關內容。

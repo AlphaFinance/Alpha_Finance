@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import concurrent.futures
 
-__version__ = '0.2.6'
+__version__ = '0.2.7'
 
 def create_dir(dir_name):
     if not os.path.isdir(dir_name):
@@ -19,7 +19,7 @@ def download_data(dir_name,data_name):
         print(data_name,'🆗')
         
 def download_data_multithreading(dir_name):
-    with concurrent.futures.ThreadPoolExecutor(max_workers=20) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
         data_names = ['Close','Open','High','Low','Volume','monthly_revenue','industry','margin_trading','short_selling','dealer','foreign_investors','investment_trust']
         data = {executor.submit(download_data,dir_name,data_name):data_name for data_name in data_names}
         for datum in concurrent.futures.as_completed(data):
