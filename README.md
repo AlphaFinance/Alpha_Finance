@@ -5,6 +5,17 @@ Install using pip
 pip install Alpha_Finance
 ```
 
+* 本地端環境  
+[安裝talib](https://www.lfd.uci.edu/~gohlke/pythonlibs/#ta-lib)並儲存至user
+```python
+pip install TA_Lib-0.4.20-cp37-cp37m-win_amd64.whl
+```
+
+* colab環境  
+```python
+pip install talib-binary
+```
+
 ---------------------------------------------------------------------------------------
 
 ## Taiwan Stock API
