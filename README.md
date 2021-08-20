@@ -101,6 +101,24 @@ auto_crawler()
 =========       Finish✔         =========  
 ⭐⭐⭐⭐⭐ All Finish ⭐⭐⭐⭐⭐  
 
+#### 模組套件
+```python
+from Alpha_Finance.stock import stock_dataframe,technical_chart
+
+stock_id = '2330'
+dfstock = stock_dataframe(stock_id)
+technical_chart(dfstock,stock_id)
+```
+|date|open|close|low|high|volume|pct|
+|----|----|-----|---|----|------|---|
+|2021-08-13|585.0|581.0|579.0|585.0|25440.973|-0.85|
+|2021-08-16|582.0|584.0|578.0|586.0|19949.389| 0.52|
+|2021-08-17|580.0|580.0|578.0|582.0|31845.499|-0.68|
+|2021-08-18|568.0|574.0|566.0|575.0|47063.629|-1.03|
+|2021-08-19|573.0|559.0|559.0|573.0|42133.375|-2.61|
+
+![](/images/technical_chart.png)
+
 ----------------------------------------------------------------
 
 ## Contact

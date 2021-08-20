@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import concurrent.futures
 
-__version__ = '0.2.8'
+__version__ = '0.2.9'
 
 def create_dir(dir_name):
     if not os.path.isdir(dir_name):
