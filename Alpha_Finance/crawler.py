@@ -6,6 +6,13 @@ import time
 import random
 import concurrent.futures
 from Alpha_Finance.data import DataReader
+import sys
+
+if 'google.colab' in sys.modules:
+    dir_name = '/content/drive/MyDrive/DB_twstock'
+else:
+    dir_name = 'DB_twstock'
+    
 
 
 def crawl_price(date):
@@ -55,19 +62,19 @@ def crawl_price_multithreading(dates):
         database = database.sort_values('date')
         df = DataReader.get_twstock_close().append(database.pivot_table('收盤價','date','stock_id'))
         df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/Close.pkl')
+        df.to_pickle(f"{dir_name}/Close.pkl")
         df = DataReader.get_twstock_open().append(database.pivot_table('開盤價','date','stock_id'))
         df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/Open.pkl')
+        df.to_pickle(f"{dir_name}/Open.pkl")
         df = DataReader.get_twstock_high().append(database.pivot_table('最高價','date','stock_id'))
         df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/High.pkl')
+        df.to_pickle(f"{dir_name}/High.pkl")
         df = DataReader.get_twstock_low().append(database.pivot_table('最低價','date','stock_id'))
         df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/Low.pkl')
+        df.to_pickle(f"{dir_name}/Low.pkl")
         df = DataReader.get_twstock_volume().append(database.pivot_table('成交股數','date','stock_id'))
         df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/Volume.pkl')
+        df.to_pickle(f"{dir_name}/Volume.pkl")
     except:
         pass
     print('=========       Finish✔         =========')
@@ -120,13 +127,13 @@ def crawl_institution_multithreading(dates):
         database['外資買賣超股數'] = database[['外陸資買賣超股數(不含外資自營商)','外資自營商買賣超股數']].sum(axis=1)
         df = DataReader.get_twstock_foreign_investors().append(database.pivot_table('外資買賣超股數','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/foreign_investors.pkl')
+        df.to_pickle(f"{dir_name}/foreign_investors.pkl")
         df = DataReader.get_twstock_investment_trust().append(database.pivot_table('投信買賣超股數','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/investment_trust.pkl')
+        df.to_pickle(f"{dir_name}/investment_trust.pkl")
         df = DataReader.get_twstock_dealer().append(database.pivot_table('自營商買賣超股數','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/dealer.pkl')
+        df.to_pickle(f"{dir_name}/dealer.pkl")
     except:
         pass
     print('=========       Finish✔         =========')
@@ -178,10 +185,10 @@ def crawl_margin_multithreading(dates):
         database = database.sort_values('date')
         df = DataReader.get_twstock_margin_trading().append(database.pivot_table('融資買超股數','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/margin_trading.pkl')
+        df.to_pickle(f"{dir_name}/margin_trading.pkl")
         df = DataReader.get_twstock_short_selling().append(database.pivot_table('融券賣超股數','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/short_selling.pkl')
+        df.to_pickle(f"{dir_name}/short_selling.pkl")
     except:
         pass
     print('=========       Finish✔         =========')
@@ -249,7 +256,7 @@ def crawl_monthly_revenue_multithreading(months):
 
         df = DataReader.get_twstock_monthly_revenue().append(database.pivot_table('當月營收','date','stock_id'))
         df = df.groupby(df.index).last()
-        df.to_pickle('DB_twstock/monthly_revenue.pkl')
+        df.to_pickle(f"{dir_name}/monthly_revenue.pkl")
     except:
         pass
     print('=========       Finish✔         =========')
