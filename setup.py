@@ -18,7 +18,7 @@ URL = 'https://github.com/AlphaFinance/Alpha_Finance'
 EMAIL = 'alphafinance.tw@gmail.com'
 AUTHOR = 'KB'
 REQUIRES_PYTHON = '>=3.7.0'
-VERSION = '0.2.9'
+VERSION = '0.3.0'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
