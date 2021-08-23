@@ -133,7 +133,31 @@ indicator.RSI(dfstock)
 |2021-08-18|46.256672|  
 |2021-08-19|42.602784|  
 
-----------------------------------------------------------------
+#### 個股回測
+```python
+from Alpha_Finance.backtest import backtest_single_stock
+from Alpha_Finance.stock import stock_dataframe
+import datetime
+
+stock_id = '0050'
+dfstock = stock_dataframe(stock_id)
+
+def ma(n):
+    return dfstock.close.rolling(n,min_periods=1).mean()
+
+entry = (ma(5)>=ma(60))&(ma(5).shift()<ma(60).shift())
+exit = (ma(5)<=ma(60))&(ma(5).shift()>ma(60).shift())
+start_date = datetime.date(2014,5,5)
+end_date = datetime.date(2021,8,23)
+
+backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date)
+```
+
+![](/images/backtest_chart.png)  
+![](/images/backtest_roi.png)  
+![](/images/backtest_log.png)  
+
+----------------------------------------------------------------  
 
 ## Contact
 

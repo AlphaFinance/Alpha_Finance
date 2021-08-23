@@ -60,17 +60,18 @@ def technical_chart(
     second_indicator=None,
     second_name=['','','','',''],
     third_indicator=None,
-    third_name=''
+    third_name='',
+    markline = None
 ):
     '''
     dfstock:
     date        open    close   low     high    volume     pct 
     ----------  -----   -----   -----   -----   ---------  -----
-    2021-08-13	585.0	581.0	579.0	585.0	25440.973  -0.85
-    2021-08-16	582.0	584.0	578.0	586.0	19949.389   0.52
-    2021-08-17	580.0	580.0	578.0	582.0	31845.499  -0.68
-    2021-08-18	568.0	574.0	566.0	575.0	47063.629  -1.03
-    2021-08-19	573.0	559.0	559.0	573.0	42133.375  -2.61
+    2021-08-13  585.0   581.0   579.0   585.0   25440.973  -0.85
+    2021-08-16  582.0   584.0   578.0   586.0   19949.389   0.52
+    2021-08-17  580.0   580.0   578.0   582.0   31845.499  -0.68
+    2021-08-18  568.0   574.0   566.0   575.0   47063.629  -1.03
+    2021-08-19  573.0   559.0   559.0   573.0   42133.375  -2.61
     
     stock_id = '2330' or '2330.TW'
     
@@ -100,7 +101,8 @@ def technical_chart(
     kline = (
         Kline()
         .add_xaxis(x)
-        .add_yaxis('Kline',s.values.tolist(),itemstyle_opts=opts.ItemStyleOpts(color="#f11421",color0="#34b298",border_color="#f11421",border_color0='#34b298'))
+        .add_yaxis('Kline',s.values.tolist(),itemstyle_opts=opts.ItemStyleOpts(color="#f11421",color0="#34b298",border_color="#f11421",border_color0='#34b298'),
+                   markline_opts=opts.MarkLineOpts(data=markline,symbol_size=8,symbol=['','triangle'],linestyle_opts=opts.LineStyleOpts(color='#003fa3',type_='',width=2.5)))
         # 建立多Y軸
         .extend_axis(yaxis=opts.AxisOpts('value','volume',max_=round(s.volume.max()*3)))
         .extend_axis(yaxis=opts.AxisOpts('value','pct',min_=0,max_=10000,offset=5000))
