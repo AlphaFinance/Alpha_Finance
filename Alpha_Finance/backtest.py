@@ -49,6 +49,9 @@ def backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date,stop_l
     stop_loss = -10 or 10 -> -10
     stop_profit = -10 or 10 -> -10
     stop_drawdown = -10 or 10 -> -10
+    
+    Output:
+    yc = backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date)
     '''
     
     dates = entry[entry][start_date:end_date].index
@@ -95,8 +98,6 @@ def backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date,stop_l
     for name in ['ROI','symbol']:
         yc[f"{name}_drawdown"] = round((yc/yc.cummax()-1)[name]*100,2)
         
-    technical_chart(dfstock,stock_id,markline=markline)
-    
     x = yc.index.astype(str).to_list()
 
     line = (Line().add_xaxis(x))
@@ -123,13 +124,14 @@ def backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date,stop_l
         legend_opts=opts.LegendOpts(pos_top='450px')
     )
 
-
     grid = Grid(init_opts=opts.InitOpts('1200px','620px'))
     grid.add(line,grid_opts=opts.GridOpts(pos_top='5%',height='400px'),is_control_axis_index=True)
     grid.add(second_line,grid_opts=opts.GridOpts(pos_top='480px',height='60px'),is_control_axis_index=True)
     grid.render()
     display(HTML(filename='render.html'))
     os.remove('render.html')
+    
+    technical_chart(dfstock,stock_id,markline=markline)
     
     KPI = pd.DataFrame({
         'Start Date':start_date.strftime('%Y-%m-%d'),
@@ -146,8 +148,9 @@ def backtest_single_stock(dfstock,stock_id,entry,exit,start_date,end_date,stop_l
         'Symbol Final(%)':f"{round((yc.iloc[-1]['symbol']-1)*100,2)} %",
     },index=['Key Performance Indicator']).transpose()
     
-    
     for t,w in zip([KPI,round(log,2)],[450,1000]):
         fig = ff.create_table(t,index=True)
         fig.layout.width = w
         fig.show()
+        
+    return yc
